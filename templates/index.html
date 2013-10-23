@@ -31,7 +31,7 @@
 
         <!-- Fixed navbar -->
 
-        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #FF6633; border-style:none;">
+        <div id="navbar" class="navbar navbar-inverse navbar-fixed-top" style="background-color: #FF6633; border-style:none;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border-style:none">
@@ -39,10 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <button id="back_button" type="button" class="btn btn-default navbar-btn btn pull-left" style="border-color:black; background-color: #FF6633; border-style:none; margin-left:15px">
-                        <span id="back_button_chevron" class="glyphicon glyphicon-chevron-left"></span>
-                    </button>
-                    <h3 style="margin-top:10px; text-align:center;"><span style="font-weight: bold; color: #f6f3e5">Capri</span><span style="color:black; font-family: 'Berkshire Swash', cursive;"> | fuel<span style="vertical-align: 15%; font-size: 70%"><sup>&copy</sup></span></span></h3>
+                    <h3 style="margin-top:10px; margin-left:35px;"><span style="font-style: italic; font-weight: bold; color: #f6f3e5">Capri</span><span style="color:black; font-family: 'Berkshire Swash', cursive;"> | fuel</span></h3>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -61,135 +58,16 @@
         </div>
 
         <div class="container">
-            <!-- ---------------------Welcome div, show the steps--------------------- -->
-            <div id="splash_div">
-                <div class="alert alert-danger container step">
-                    <div class="icon-container">
-                        <span class="glyphicon glyphicon-th-large"></span>
-                    </div>
-                    &nbsp;
-                    Choose your car.
+            <!-- ---------------------Welcome div--------------------- -->
+            <div id="splash_div" style="display:none;">
+                <div class="alert alert-success">
+                    <h2>Capri Fuel</h2>
+                    <p class="lead"> Submit your fuel-up to earn some bucks.</p>
                 </div>
-                 <div class="alert alert-info container step">
-                    <div class="icon-container">
-                        <span class="glyphicon glyphicon-camera"></span>
-                    </div>
-                    &nbsp;
-                    Take a picture of your receipt.
-                </div>
-                <div class="alert alert-warning container step">
-                    <div class="icon-container">
-                        <span class="glyphicon glyphicon-dashboard "></span>
-                    </div>
-                    &nbsp;
-                    Enter your fuel-up details.
-                </div>
-                <div class="alert alert-success container step">
-                    <div class="icon-container">
-                        <span class="glyphicon glyphicon-gift "></span>
-                    </div>
-                    &nbsp;
-                    Choose your reward!
-                </div>
-
-                <button class="btn btn-lg btn-primary btn-block" id="splash_button" href="#">
-                    <span class="glyphicon glyphicon-hand-right"></span> Let's go!
-                </button>
-            </div>
-            <!-- ---------------------Choose your car--------------------- -->
-            <div  id="choose_car_div" style="display:none" >
-                <div class="alert alert-danger container step">
-                    <div class="icon-container">
-                        <span class="glyphicon glyphicon-th-large"></span>
-                    </div>
-                    &nbsp;
-                    Choose your car.
-                </div>
-                <table>
-                    <tr>
-                        <td> {% load staticfiles %}
-                            <button class="btn btn-lg btn-primary  btn-block" id="choose_car_button" href="#" style="margin-bottom: 10px; text-align: left">
-
-                                <img src="http://stanford.edu/~niloufar/car.gif" alt="" width = "30%" align="left" style="margin-right: 10px ">
-                                Make: Altima
-                                <BR>
-                                Model: Nissan
-                                <BR>
-                                Year: 2009
-                                <BR>
-
-                        </button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-lg btn-primary  btn-block" onclick="showReceipt();" href="#"  style="margin-bottom: 10px; text-align: left">
-                                <img src="http://stanford.edu/~niloufar/car.gif" alt="" width = "30%" align="left" style="margin-right: 10px ">
-
-                                Make: Fiesta
-                                <BR>
-                                Model: Ford
-                                <BR>
-                                Year: 2004
-                                <BR>
-                        </button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-lg btn-primary  btn-block" id="new_car_button" href="#" style=" margin-left: auto; margin-right: auto">
-                                <span class="glyphicon glyphicon-plus-sign" style="font-size:20px"></span><span style="font-size:20px"> New car</span>
-
-                        </button></td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-            <!-- ---------------------Register new car--------------------- -->
-            <div  id="new_car_div" style="display:none">
-                <div class="alert alert-info container step">
-                    <div class="icon-container">
-                        <span class="glyphicon glyphicon-icon-pencil"></span>
-                    </div>
-                    &nbsp;
-                    Please enter your car's details.
-                </div>
-                <div class="alert alert-warning container step" style="margin=10px">
-                    <table width="80%" style="margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px">
-                        <tr>
-                            <td>Make:</td>
-                            <td>
-                                <input type="text" id="carmodels" style="margin-bottom: 10px" class="form-control" placeholder="Model">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Model:</td>
-                            <td>
-                                <input type="text" id="carmakes" style="margin-bottom: 10px" class="form-control" placeholder="Make">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Year:</td>
-                            <td>
-                                <input type="text" id="caryear" style="margin-bottom: 10px" class="form-control" placeholder="Year">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-lg btn-primary  btn-block" id="add_car_button" href="#" style="margin-left: auto; margin-right: auto">
-                                    <span class="glyphicon glyphicon-plus" style="font-size:20px"></span><span style="font-size:20px"> Add car</span>
-                            </button></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-
             </div>
 
             <!-- ---------------------Taking picture div--------------------- -->
-            <div id="receipt_div" style="display:none;">
+            <div id="receipt_div">
                 <div class="alert alert-info container step">
 
                     <div class="icon-container">
@@ -201,14 +79,11 @@
                 <div style="text-align:center;">
                     <img id="receipt_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvFLI-nVCBV40l29R7KDHRbk2CVF1GBCp93em6q5VkNH0PDfGt" style="width:80%; margin-left:auto; margin-right:auto; margin-bottom:10px;">
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" id="receipt_button" style="display:none">
-                    <span class="glyphicon glyphicon-hand-right"></span> Continue
-                </button>
-                </p>
+                <input id="receipt_input" name="receipt" type="file" accept="image/*" capture="camera" style="display:none">
             </div>
 
             <!-- ---------------------Typing in numbers div--------------------- -->
-            <div id="number_div" style="display:none">
+            <div id="number_div" style="display:none;">
                 <div class="alert alert-warning container step">
                     <div class="icon-container">
                         <span class="glyphicon glyphicon-dashboard"></span>
@@ -216,8 +91,8 @@
                     &nbsp;
                     Enter your fuel-up details.
                 </div>
-                <form method="post" action="">
-                    <input id="receipt_input" type="file" accept="image/*" capture="camera" style="display:none">
+                <form id="fuelup_form" enctype="multipart/form-data" onsubmit="return false;">
+                    {% csrf_token %}
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Unit price ($/gal)</span></h4>
                     <input id="price" name="price" type="number" step="any" style="margin-bottom: 15px" class="form-control" placeholder="$/gal">
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Gallons</span></h4>
@@ -239,7 +114,7 @@
                     </div>
                     <div>
                         <h4><span class="label label-primary" style="margin-bottom: 10px">Gas Station Chain</span></h4>
-                        <select class="form-control input-medium" style="margin-bottom:15px">
+                        <select name="chain" class="form-control input-medium" style="margin-bottom:15px">
                             <option>Shell</option>
                             <option>Chevron</option>
                             <option>Valero</option>
@@ -250,13 +125,23 @@
                             <option>Other</option>
                         </select>
                     </div>
-                    <p id="para_points" style="display:none">
-                    We will remove <span id="remove_points"></span> points for your <span id="add_gallons"></span> gallon fuel-up.
-                    </p>
-                    <button class="btn btn-lg btn-primary btn-block" id="number_button" style="margin-bottom: 10px">
-                        <span class="glyphicon glyphicon-gift"></span> Choose your reward!
+                    <div id="para_points" class="alert alert-danger" style="display:none;">
+                    We will deduct <span id="remove_points"></span> points from your Capri account for your <span id="add_gallons"></span> gallons fuel-up.
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" id="post_button" style="margin-bottom: 10px">
+                    <i class='icon-spinner icon-spin icon-large'></i>
+                        <span class="glyphicon glyphicon-gift"></span> Get your reward!
                     </button>
                 </form>
+            </div>
+            
+            <div id="waiting_div" style="display:none;">
+                <div id="para_points" class="alert alert-info">
+                    Uploading. Just a sec.
+                </div>
+                <div style="text-align:center;">
+                    <img src="http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_512.gif" style="width:80%; margin-left:auto; margin-right:auto; margin-bottom:10px;">
+                </div>
             </div>
 
             <!-- Div for displaying point deduction and picking fixed or random -->
@@ -376,27 +261,38 @@
         <script src="{{STATIC_URL}}fuel/dist/js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="http://www.nihilogic.dk/labs/exif/exif.js"></script>
+        <script src="http://www.nihilogic.dk/labs/binaryajax/binaryajax.js"></script>
         <script>
 
             var gallons = 0;
 
             $(document).ready(function() {
 
-                $('#splash_button').attr('onClick', 'showChooseCar()');
-
-                $('#choose_car_button').attr('onClick', 'showReceipt()');
-
-                $('#new_car_button').attr('onClick', 'showNewCar()');
-
-                $('#add_car_button').attr('onClick', 'showChooseCar()');
-
                 $('#receipt_img').click(function(event) {
                     $("#receipt_input").click();
                 });
+                
+                $('#post_button').click(function(event) {
+                    showWaiting();
+                    var formData = new FormData($('#fuelup_form')[0]);
+                    formData.append('receipt', receipt_blob);
 
-                $('#receipt_button').attr('onClick', 'showNumber()');
-
-                $('#number_button').attr('onClick', 'showSelect(); return false;');
+                    var xhrForm = new XMLHttpRequest();
+                    xhrForm.open("POST", "/fuel/fuelup_post/");
+                    xhrForm.send(formData);
+                    xhrForm.onreadystatechange = function () {
+                        if (xhrForm.readyState == 4 && xhrForm.status == 200) {
+                            if(xhrForm.response == "success") {
+                                showSelect();
+                            }
+                            else {
+                                alert("post error.");
+                            }
+                        }
+                    };
+                    
+                });
 
                 $('#select_dollar_button').attr('onClick', 'showDollar()');
 
@@ -411,11 +307,17 @@
                 });
 
                 $('#receipt_input').change(function(event) {
-                    img = event.target.files[0];
+                    $('#number_div').show();
+                    var img = event.target.files[0];
                     var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#receipt_img').attr('src', e.target.result);
-                        $('#receipt_button').show();
+                    reader.onloadend = function(e) {
+                        var source_image = new Image();
+                        source_image.src = e.target.result;
+                        source_image.onload = function() {
+                            var result_image = document.getElementById('receipt_img');  
+                            result_image.src = compress(source_image, 0.3);
+                        }
+
                     }
                     reader.readAsDataURL(img);
                 });
@@ -429,21 +331,8 @@
                     updateCalc();
                 });
 
-                showSplash();
+            });
 
-            });
-            $(function() {
-                var availableModels = ["Ford", "Honda", "Nissan", "Mazda", "Toyota", "BMW", "Tesla", "Subaru", "Audi", "Chevrolet"];
-                $("#carmodels").autocomplete({
-                    source : availableModels
-                });
-            });
-            $(function() {
-                var availableMakes = ["Corolla", "Wrangler", "Accord", "Escape"];
-                $("#carmakes").autocomplete({
-                    source : availableMakes
-                });
-            });
             function updateCalc() {
                 gallons = parseFloat($('input#gallons').val());
                 if (gallons > 0) {
@@ -451,58 +340,112 @@
                     $('span#add_gallons').html(gallons);
                     d = gallons * 0.05;
                     $('span#deterministic_reward').html(d.toFixed(2));
-                    $('p#para_points').show();
+                    $('#para_points').show();
                     } else {
-                    $('p#para_points').hide();
+                    $('#para_points').hide();
                 }
             }
 
-            function showSplash() {
-                $('#splash_div').show();
-                $('#receipt_div').hide();
-                $('#choose_car_div').hide();
-                $('#back_button').prop('disabled', true);
-                $('#back_button').attr('onClick', "");
+            function dataURItoBlob(dataURI) {
+                var binary = atob(dataURI.split(',')[1]);
+                var array = [];
+                for(var i = 0; i < binary.length; i++) {                    
+                    array.push(binary.charCodeAt(i));
+                }
+                return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
             }
 
-            function showChooseCar() {
-                $('#choose_car_div').show();
+            var receipt_blob; 
+
+            function compress(source_img_obj, quality) {
+                var bin = atob(source_img_obj.src.split(',')[1]);
+                var exif = EXIF.readFromBinaryFile(new BinaryFile(bin));
+                var cvs = document.createElement('canvas');
+                var width = source_img_obj.naturalWidth;
+                var height = source_img_obj.naturalHeight;
+                cvs.width = width*quality;
+                cvs.height = height*quality;
+                var ctx = cvs.getContext("2d");
+                
+                switch(exif.Orientation) {
+                    case 1:
+                        cvs.width = width*quality;
+                        cvs.height = height*quality;
+                        ctx.translate(cvs.width/2,cvs.height/2);
+                        ctx.rotate(0*Math.PI/180);
+                        break;
+                    case 3:
+                        cvs.width = width*quality;
+                        cvs.height =height*quality;
+                        ctx.translate(cvs.width/2,cvs.height/2);
+                        ctx.rotate(180*Math.PI/180);
+                        break;
+                    case 6:
+                        cvs.width = height*quality;
+                        cvs.height = width*quality;
+                        ctx.translate(cvs.width/2,cvs.height/2);
+                        ctx.rotate(90*Math.PI/180);
+                        break;
+                    case 8:
+                        cvs.width = height*quality;
+                        cvs.height = width*quality;
+                        ctx.translate(cvs.width/2,cvs.height/2);
+                        ctx.rotate(270*Math.PI/180);
+                        break;
+                    default:
+                }
+                drawImageIOSFix(ctx, source_img_obj, 0, 0, width, height, -width*quality/2, -height*quality/2, width*quality, height*quality);
+
+                var newImageData = cvs.toDataURL("image/jpeg");
+                receipt_blob = dataURItoBlob(newImageData);
+                return newImageData;
+            }
+            
+            
+            function detectVerticalSquash(img) {
+                var iw = img.naturalWidth, ih = img.naturalHeight;
+                var canvas = document.createElement('canvas');
+                canvas.width = 1;
+                canvas.height = ih;
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                var data = ctx.getImageData(0, 0, 1, ih).data;
+                // search image edge pixel position in case it is squashed vertically.
+                var sy = 0;
+                var ey = ih;
+                var py = ih;
+                while (py > sy) {
+                    var alpha = data[(py - 1) * 4 + 3];
+                    if (alpha === 0) {
+                        ey = py;
+                    } else {
+                        sy = py;
+                    }
+                    py = (ey + sy) >> 1;
+                }
+                var ratio = (py / ih);
+                return (ratio===0)?1:ratio;
+            }
+
+            /**
+            * A replacement for context.drawImage
+            * (args are for source and destination).
+            */
+            function drawImageIOSFix(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
+                var vertSquashRatio = detectVerticalSquash(img);
+                ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
+            }
+            
+            function showWaiting() {
                 $('#splash_div').hide();
-                $('#new_car_div').hide();
                 $('#receipt_div').hide();
-                $('#back_button').prop('disabled', false);
-                $('#back_button').attr('onClick', "showSplash()");
-            }
-
-            function showNewCar() {
-                $('#new_car_div').show();
-                $('#choose_car_div').hide();
-                $('#receipt_div').hide();
-                $('#back_button').prop('disabled', false);
-                $('#back_button').attr('onClick', "showChooseCar()");
-            }
-
-            function showReceipt() {
-                $('#receipt_div').show();
-                $('#splash_div').hide();
-                $('#choose_car_div').hide();
                 $('#number_div').hide();
-                $('#back_button').prop('disabled', false);
-                $('#back_button').attr('onClick', "showChooseCar()");
-            }
-
-            function showNumber() {
-                $('#number_div').show();
-                $('#receipt_div').hide();
-                $('#back_button').attr('onClick', "showReceipt()");
+                $('#waiting_div').show();
             }
 
             function showSelect() {
+            	$('#waiting_div').hide();
                 $('#select_div').show();
-                $('#number_div').hide();
-                $('#game_div').hide();
-                $('#back_button').prop('disabled', true);
-                $('#back_button').attr('onClick', "");
             }
 
             function showGame() {
