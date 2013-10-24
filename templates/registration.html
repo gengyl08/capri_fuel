@@ -50,7 +50,7 @@
             <div  id="new_car_div" style="">
                 <div class="alert alert-info container step">
                     <div class="icon-container">
-                        <span class="glyphicon glyphicon-icon-pencil"></span>
+                        <span class="glyphicon glyphicon-pencil"></span>
                     </div>
                     &nbsp;
                     Please enter your car's details.
@@ -58,11 +58,11 @@
                 <form id="car_form" action="return false;">
                     {% csrf_token %}
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Make</span></h4>
-                    <input type="text" id="carmodels" name="make" style="margin-bottom: 10px" class="form-control" placeholder="Model">
+                    <input type="text" id="carmodels" name="make" style="margin-bottom: 10px" class="form-control" placeholder="Ford">
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Model</span></h4>
-                    <input type="text" id="carmakes" name="model" style="margin-bottom: 10px" class="form-control" placeholder="Make">
+                    <input type="text" id="carmakes" name="model" style="margin-bottom: 10px" class="form-control" placeholder="Escape">
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Year</span></h4>
-                    <input type="text" id="caryear" name="year" style="margin-bottom: 10px" class="form-control" placeholder="Year">
+                    <input type="text" id="caryear" name="year" style="margin-bottom: 10px" class="form-control" placeholder="2013">
 
                     <button class="btn btn-lg btn-primary  btn-block" id="add_car_button">
                         <span class="glyphicon glyphicon-plus" style="font-size:20px"></span><span style="font-size:20px"> Done</span>
