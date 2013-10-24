@@ -38,8 +38,9 @@
 
             <!-- ---------------------Introduction div--------------------- -->
             <div id="intro_div">
-                <div class="alert alert-danger container">
-                    Welcome to Capri Fuel! Introduction to the project.
+                <div class="alert alert-success">
+                    <h2>Welcome to Capri Fuel!</h2>
+                    <p>Capri Fuel uses your Capri points to reward you for fueling up at gas stations. By uploading your fuel-up records, you have a chance to win cash prizes. Get started by registering your car!</p>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" id="intro_button" href="#">
                     <span class="glyphicon glyphicon-hand-right"></span> Register Car!
@@ -47,7 +48,7 @@
             </div>
 
             <!-- ---------------------Register new car--------------------- -->
-            <div  id="new_car_div" style="">
+            <div  id="new_car_div" style="display:none;">
                 <div class="alert alert-info container step">
                     <div class="icon-container">
                         <span class="glyphicon glyphicon-pencil"></span>
@@ -55,27 +56,51 @@
                     &nbsp;
                     Please enter your car's details.
                 </div>
-                <form id="car_form" action="return false;">
+                <form id="car_form" onsubmit="return false;">
                     {% csrf_token %}
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Make</span></h4>
                     <input type="text" id="carmodels" name="make" style="margin-bottom: 10px" class="form-control" placeholder="Ford">
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Model</span></h4>
                     <input type="text" id="carmakes" name="model" style="margin-bottom: 10px" class="form-control" placeholder="Escape">
                     <h4><span class="label label-primary" style="margin-bottom: 10px">Year</span></h4>
-                    <input type="text" id="caryear" name="year" style="margin-bottom: 10px" class="form-control" placeholder="2013">
-
+                    <select name="year" class="form-control" style="margin-bottom: 10px;">
+                        <option>2013</option>
+                        <option>2011</option>
+                        <option>2011</option>
+                        <option>2010</option>
+                        <option>2009</option>
+                        <option>2008</option>
+                        <option>2007</option>
+                        <option>2006</option>
+                        <option>2005</option>
+                        <option>2004</option>
+                        <option>2003</option>
+                        <option>2002</option>
+                        <option>2001</option>
+                        <option>2000</option>
+                        <option>1999</option>
+                        <option>1998</option>
+                        <option>1997</option>
+                        <option>1996</option>
+                        <option>1995</option>
+                        <option>1994</option>
+                        <option>1993</option>
+                        <option>1992</option>
+                        <option>1991</option>
+                        <option>1990</option>
+                    </select>
                     <button class="btn btn-lg btn-primary  btn-block" id="add_car_button">
-                        <span class="glyphicon glyphicon-plus" style="font-size:20px"></span><span style="font-size:20px"> Done</span>
+                        Done
                     </button>
                 </form>
             </div>
 
             <!-- ---------------------Welcome div, show the steps--------------------- -->
-            <div id="splash_div">
-                <div class="alert alert-danger container">
-                    Congratulations! You have completed registering your car. It's very easy to get started on fuel-up!
+            <div id="splash_div" style="display:none;">
+                <div class="alert alert-success container">
+                    <p>Congratulations! You have registered your car. Earning rewards is easy -- just follow the steps below!</p>
                 </div>
-                 <div class="alert alert-info container step">
+                 <div class="alert alert-danger container step">
                     <div class="icon-container">
                         <span class="glyphicon glyphicon-camera"></span>
                     </div>
@@ -89,7 +114,7 @@
                     &nbsp;
                     Enter your fuel-up details.
                 </div>
-                <div class="alert alert-success container step">
+                <div class="alert alert-info container step">
                     <div class="icon-container">
                         <span class="glyphicon glyphicon-gift "></span>
                     </div>
@@ -97,8 +122,8 @@
                     Choose your reward!
                 </div>
 
-                <button class="btn btn-lg btn-primary btn-block" id="welcome_button">
-                    <span class="glyphicon glyphicon-hand-right"></span> Let's go!
+                <button class="btn btn-lg btn-primary btn-block" id="splash_button">
+                    <span class="glyphicon glyphicon-hand-right"></span>&nbsp;Let's go!
                 </button>
             </div>
 
@@ -117,7 +142,29 @@
         <script>
 
             $(document).ready(function() {
+                $('#intro_button').click(function() {
+                    $('#intro_div').hide();
+                    $('#new_car_div').show();
+                });
 
+                $('#add_car_button').click(function() {
+                    $('#new_car_div').hide();
+                    $.ajax({
+                        url: "/fuel/registration/",
+                        type: "POST",
+                        data: $('#car_form').serialize(),
+                        success: function(data) {
+                            if(data == "success") {
+                                $('#splash_div').show();
+                            }
+                        }
+                    
+                    });
+                });
+
+                $('#splash_button').click(function() {
+                    window.location = "/fuel/"
+                });
             });
             $(function() {
                 var availableModels = ["Ford", "Honda", "Nissan", "Mazda", "Toyota", "BMW", "Tesla", "Subaru", "Audi", "Chevrolet"];
